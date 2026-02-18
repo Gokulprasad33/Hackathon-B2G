@@ -1,10 +1,4 @@
 import React from 'react';
-import Article from '@mui/icons-material/Article';
-import TrendingUp from '@mui/icons-material/TrendingUp';
-import Water from '@mui/icons-material/Water';
-import Warning from '@mui/icons-material/Warning';
-import Public from '@mui/icons-material/Public';
-import Waves from '@mui/icons-material/Waves';
 
 const Articles = () => {
   const articles = [
