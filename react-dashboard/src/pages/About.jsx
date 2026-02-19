@@ -3,24 +3,24 @@ import React from 'react';
 const About = () => {
   const teamMembers = [
     {
-      name: 'Dr. Sarah Chen',
-      role: 'Marine Biologist',
-      expertise: 'Coral reef ecosystems and marine biodiversity'
+      name: 'Gokul Prasad',
+      role: 'Full Stack Developer',
+      expertise: 'React development and ocean data visualization'
     },
     {
-      name: 'Michael Rodriguez',
+      name: 'Essaki Rakesh',
+      role: 'Backend Developer',
+      expertise: 'API development and database management'
+    },
+    {
+      name: 'Ezhil',
       role: 'Data Scientist',
-      expertise: 'Machine learning for ocean data analysis'
+      expertise: 'Machine learning and ocean data analysis'
     },
     {
-      name: 'Emma Thompson',
-      role: 'Environmental Engineer',
-      expertise: 'Water quality monitoring systems'
-    },
-    {
-      name: 'James Wilson',
-      role: 'Fisheries Expert',
-      expertise: 'Sustainable fishing practices and community engagement'
+      name: 'Mithilesh',
+      role: 'UI/UX Designer',
+      expertise: 'User interface design and user experience optimization'
     }
   ];
 
@@ -102,9 +102,14 @@ const About = () => {
                 </p>
               </div>
               <div className="flex justify-center">
-                <svg className="h-32 w-32 text-primary opacity-20" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
+                <div className="relative">
+                  
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg className="h-32 w-32 text-primary opacity-20" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -191,9 +196,9 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-200 border border-ocean-100">
-                <div className="w-20 h-20 bg-ocean-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <svg className="h-10 w-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                <div className="w-20 h-20 bg-gradient-to-br from-ocean-100 to-ocean-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <svg className="h-10 w-10 text-ocean-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-primary mb-1">

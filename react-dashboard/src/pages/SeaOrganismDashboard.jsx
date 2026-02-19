@@ -78,15 +78,23 @@ const SeaOrganismDashboard = () => {
       {/* Metrics Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Water Pollution Level</h3>
+          </div>
           <Gauge
             value={data.pollution?.level || 0}
-            label="Water Pollution Level"
+            label="Current Level"
             unit="%"
           />
         </Card>
 
         <Card>
-          <div className="text-center">
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Microplastics</h3>
+          </div>
+          <div className="relative text-center">
+            <div className="absolute top-0 right-0">
+            </div>
             <div className="text-3xl font-bold text-ocean-600 mb-2">
               {data.microplastics?.concentration || 0}
             </div>
@@ -94,7 +102,7 @@ const SeaOrganismDashboard = () => {
               {data.microplastics?.unit || 'particles/m³'}
             </div>
             <div className="text-sm font-medium text-gray-700">
-              Microplastics
+              Concentration
             </div>
             <StatusBadge 
               status={data.microplastics?.trend || 'stable'} 
@@ -105,12 +113,15 @@ const SeaOrganismDashboard = () => {
         </Card>
 
         <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Oil Contamination</h3>
+          </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-orange-600 mb-2">
               {data.oilContamination?.index || 0}
             </div>
             <div className="text-sm font-medium text-gray-700 mb-2">
-              Oil Contamination
+              Contamination Index
             </div>
             <StatusBadge 
               status={data.oilContamination?.status || 'low'} 
@@ -120,9 +131,12 @@ const SeaOrganismDashboard = () => {
         </Card>
 
         <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Coral Reef Health</h3>
+          </div>
           <Gauge
             value={data.coralReef?.score || 0}
-            label="Coral Reef Health"
+            label="Health Score"
             unit="/100"
           />
         </Card>
@@ -130,7 +144,10 @@ const SeaOrganismDashboard = () => {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card title="Pollution & Microplastics Trend">
+        <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Pollution & Microplastics Trend</h3>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={data.trendData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
@@ -170,7 +187,10 @@ const SeaOrganismDashboard = () => {
           </ResponsiveContainer>
         </Card>
 
-        <Card title="AI Alerts & Suggestions">
+        <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">AI Alerts & Suggestions</h3>
+          </div>
           <div className="space-y-3">
             {data.alerts.map((alert, index) => (
               <div 
@@ -200,7 +220,10 @@ const SeaOrganismDashboard = () => {
 
       {/* Additional Info */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card title="Coral Reef Details">
+        <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Coral Reef Details</h3>
+          </div>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Bleaching Risk</span>
@@ -209,11 +232,15 @@ const SeaOrganismDashboard = () => {
             <ProgressBar 
               value={data.coralReef?.score || 0} 
               label="Overall Health" 
+              variant="health"
             />
           </div>
         </Card>
 
-        <Card title="Oil Contamination">
+        <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Oil Contamination</h3>
+          </div>
           <div className="space-y-3">
             <div className="text-sm text-gray-600">
               Last Incident: {data.oilContamination?.lastIncident || 'None recorded'}
@@ -226,7 +253,10 @@ const SeaOrganismDashboard = () => {
           </div>
         </Card>
 
-        <Card title="Water Quality Status">
+        <Card>
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Water Quality Status</h3>
+          </div>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-600">Trend</span>
@@ -235,6 +265,7 @@ const SeaOrganismDashboard = () => {
             <ProgressBar 
               value={data.pollution?.level || 0} 
               label="Pollution Level" 
+              variant="pollution"
             />
           </div>
         </Card>

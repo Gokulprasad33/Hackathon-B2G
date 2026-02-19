@@ -5,7 +5,7 @@ const Home = () => {
   const features = [
     {
       title: 'Pollution Monitoring',
-      description: 'Real-time tracking of water pollution levels, microplastics, and oil contamination to protect marine ecosystems.',
+      description: '<strong>Water Pollution Levels</strong>, <strong>Microplastics</strong>, and <strong>Oil Contamination</strong> tracking to protect marine ecosystems with real-time data.',
       color: 'text-red-500',
       icon: (
         <svg className="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@ const Home = () => {
     },
     {
       title: 'Marine Health',
-      description: 'Comprehensive monitoring of coral reef health, biodiversity indicators, and ocean ecosystem conditions.',
+      description: '<strong>Coral Reef Health</strong> monitoring, biodiversity indicators, and comprehensive ocean ecosystem condition assessment.',
       color: 'text-green-500',
       icon: (
         <svg className="h-12 w-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,9 +109,10 @@ const Home = () => {
                 <h3 className="text-xl font-semibold text-primary mb-3 text-center">
                   {feature.title}
                 </h3>
-                <p className="text-ocean-600 text-center leading-relaxed">
-                  {feature.description}
-                </p>
+                <p 
+                  className="text-ocean-600 text-center leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: feature.description }}
+                />
               </div>
             ))}
           </div>

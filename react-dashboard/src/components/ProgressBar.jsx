@@ -1,9 +1,12 @@
 import React from 'react';
 
-const ProgressBar = ({ value, max = 100, label, color = 'ocean', showPercentage = true }) => {
+const ProgressBar = ({ value, max = 100, label, variant = 'auto', showPercentage = true }) => {
   const percentage = (value / max) * 100;
 
   const getColorClass = (value) => {
+    if (variant === 'health') return 'bg-green-500';
+    if (variant === 'pollution') return 'bg-rose-600';
+
     if (value <= 30) return 'bg-green-500';
     if (value <= 60) return 'bg-yellow-500';
     if (value <= 80) return 'bg-orange-500';
