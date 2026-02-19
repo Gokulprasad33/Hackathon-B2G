@@ -4,6 +4,7 @@ import Card from '../components/Card';
 import Gauge from '../components/Gauge';
 import ProgressBar from '../components/ProgressBar';
 import StatusBadge from '../components/StatusBadge';
+import OceanSafetyMap from '../components/OceanSafetyMap';
 import { seaOrganismAPI } from '../services/api';
 
 const SeaOrganismDashboard = () => {
@@ -73,8 +74,83 @@ const SeaOrganismDashboard = () => {
     );
   }
 
+  const seaSurfaceTemp = Number((26.4 + ((data.pollution?.level || 0) / 100) * 2.8).toFixed(1));
+  const nextHighTideWindow = '06:40 - 08:05';
+
   return (
     <div className="space-y-6">
+      {/* Top Insights + Map */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <Card className="lg:col-span-8">
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold text-primary">Live Map</h3>
+          </div>
+          <div className="-mx-6 -mb-4">
+            <div className="mx-6 mb-4 rounded-lg border border-ocean-200 overflow-hidden relative">
+              <OceanSafetyMap className="rounded-none" />
+
+              <div className="absolute left-3 bottom-3 z-10 pointer-events-none">
+                <div className="rounded-lg border border-ocean-200 bg-white/80 backdrop-blur-sm px-3 py-2">
+                  <div className="text-[11px] font-semibold text-ocean-900">Layers</div>
+                  <div className="mt-1 flex flex-wrap gap-2 text-[11px] text-ocean-800">
+                    <span className="inline-flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-rose-500" />
+                      Pollution
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-teal-600" />
+                      Tides
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <span className="h-2 w-2 rounded-full bg-amber-500" />
+                      Temperature
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-6 lg:col-span-4">
+          <Card>
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-primary">Food Chain Regulation</h3>
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Status</span>
+                <StatusBadge status="stable" size="sm" />
+              </div>
+              <ProgressBar value={72} label="Regulation Score" variant="health" />
+            </div>
+          </Card>
+
+          <Card>
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-primary">Temperature</h3>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-ocean-600 mb-2">{seaSurfaceTemp}°C</div>
+              <div className="text-sm font-medium text-gray-700">Sea surface (°C)</div>
+            </div>
+          </Card>
+
+          <Card>
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold text-primary">High Tides</h3>
+            </div>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-600">Alert</span>
+                <StatusBadge status="stable" size="sm" />
+              </div>
+              <div className="text-sm text-gray-600">Next window: {nextHighTideWindow}</div>
+            </div>
+          </Card>
+        </div>
+      </div>
+
       {/* Metrics Row */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card>

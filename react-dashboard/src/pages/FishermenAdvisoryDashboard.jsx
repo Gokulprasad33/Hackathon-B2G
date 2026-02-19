@@ -5,7 +5,7 @@ import Gauge from '../components/Gauge';
 import StatusBadge from '../components/StatusBadge';
 import { farmerAPI } from '../services/api';
 
-const FarmerAdvisoryDashboard = () => {
+const FishermenAdvisoryDashboard = () => {
   const [data, setData] = useState({
     seaLevel: null,
     weather: null,
@@ -329,4 +329,4 @@ const FarmerAdvisoryDashboard = () => {
   );
 };
 
-export default FarmerAdvisoryDashboard;
+export default FishermenAdvisoryDashboard;
