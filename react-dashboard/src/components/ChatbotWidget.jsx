@@ -60,7 +60,7 @@ const ChatbotWidget = () => {
         aria-label="Open chat"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M7 8h10M4 12h16m-7.32 7.32a1 1 0 011.42 0l4.24 4.24a1 1 0 011.42 0L17 8.58a1 1 0 01-1.42 0L7 16.58a1 1 0 01-1.42-1.42L4.24 16.58a1 1 0 01-1.42 0L7 20.58a1 1 0 01-1.42 0l-4.24-4.24a1 1 0 01-1.42 0" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
       </button>
 

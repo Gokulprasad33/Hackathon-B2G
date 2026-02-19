@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import OceanWaveHero from '../components/OceanWaveHero';
 
 const Home = () => {
   const features = [
@@ -44,9 +45,9 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-ocean-50 via-background to-ocean-100 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section with Ocean Waves */}
+      <section className="relative min-h-[320px]">
+        <OceanWaveHero>
           <div className="text-center">
             <div className="flex justify-center mb-6">
               <img 
@@ -55,32 +56,32 @@ const Home = () => {
                 className="h-16 w-16 text-primary"
               />
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-text mb-6">
               OceanOpt
             </h1>
-            <p className="text-xl md:text-2xl text-ocean-700 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-textMuted mb-8 max-w-3xl mx-auto">
               Protecting our oceans through innovative technology. 
               Real-time monitoring for ocean sustainability and fisherman safety.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/dashboard"
-                className="inline-flex items-center px-8 py-3 bg-primary text-white font-medium rounded-lg hover:bg-ocean-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-8 py-3 bg-primary text-surface font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002 2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2 2z" />
                 </svg>
                 Open Dashboard
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center px-8 py-3 bg-white text-primary font-medium rounded-lg border-2 border-primary hover:bg-ocean-50 transition-colors duration-200"
+                className="inline-flex items-center px-8 py-3 bg-surface text-primary font-medium rounded-lg border border-border hover:bg-background transition-colors duration-200"
               >
                 Learn More
               </Link>
             </div>
           </div>
-        </div>
+        </OceanWaveHero>
       </section>
 
       {/* Features Section */}
@@ -113,38 +114,6 @@ const Home = () => {
                   className="text-ocean-600 text-center leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: feature.description }}
                 />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-ocean-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Our Impact
-            </h2>
-            <p className="text-lg text-ocean-600">
-              Making a difference through data-driven ocean conservation
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-2">
-                  <svg className="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-ocean-600">
-                  {stat.label}
-                </div>
               </div>
             ))}
           </div>
